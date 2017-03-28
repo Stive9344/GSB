@@ -13,13 +13,13 @@ switch($uc){
 	case 'connexion':{
 		include("controleurs/c_connexion.php");break;
 	}
-	case 'gererFrais' :{
+	case 'gererFrais':{
 		include("controleurs/c_gererFrais.php");break;
 	}
-	case 'etatFrais' :{
+	case 'etatFrais':{
 		include("controleurs/c_etatFrais.php");break;
 	}
-  case 'gererEntretien' :{
+  case 'gererEntretien':{
 		include("controleurs/c_gererEntretien.php");break;
 	}
 }
