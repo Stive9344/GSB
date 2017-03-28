@@ -17,7 +17,7 @@
 
 class PdoGsb{
       	private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=carriere';   		
+      	private static $bdd='dbname=carriere';
       	private static $user='root' ;
       	private static $mdp='' ;
 		private static $monPdo;
@@ -60,6 +60,13 @@ class PdoGsb{
 		$ligne = $rs->fetch();
 		return $ligne;
 	}
+
+  public function getAllVisiteur(){
+    $req="select * from visiteur order by nom";
+    $res=  PdoGsb::$monPdo->query($req);
+    $visiteur = $res->fetch();
+    return $visiteur;
+  }
 
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
@@ -126,6 +133,12 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+
+  public function insertEntretien($date){
+    $req ="INSERT INTO entretien (jour) VALUES ('$date')";
+    $res = PdoGsb::$monPdo->query($req);
+    return $req;
+  }
 /**
  * Met à jour la table ligneFraisForfait
 
