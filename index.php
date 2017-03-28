@@ -23,6 +23,5 @@ switch($uc){
 		include("controleurs/c_gererEntretien.php");break;
 	}
 }
-include("vues/v_pied.php") ;
-dsjgfsjdgfgfjsdggds
+include("vues/v_pied.php");
 ?>
