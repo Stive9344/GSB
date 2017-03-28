@@ -19,7 +19,7 @@
               <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
            </li>
            <li class="smenu">
-              <a href="index.php?uc=gererEntretien&action=EnregistrerEntretien" title="Consultation de mes fiches de frais">Entretien</a>
+              <a href="index.php?uc=gererEntretien&action=EnregistrerEntretien" title="Consultation des entretiens">Entretien</a>
            </li>
          </br>
  	         <li class="smenu">
