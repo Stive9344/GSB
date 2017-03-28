@@ -16,12 +16,12 @@
 
   <form method="POST" action="index.php?uc=gererEntretien&action=EnregistrerEntretien">
     <p>Date: <input type="text" id="datepicker"></p>
-    Commentaire :
-    <TEXTAREA name="commentaire" rows="10" cols="158"></TEXTAREA>
+    Commentaire :<br>
+    <TEXTAREA name="commentaire" rows="10" cols="100%"></TEXTAREA>
     <br/>
     <br/>
-    Recommandation :
-    <TEXTAREA name="commentaire" rows="10" cols="158"></TEXTAREA>
+    Recommandation :<br>
+    <TEXTAREA name="commentaire" rows="10" cols="100%"></TEXTAREA>
     <br/>
     <br/>
     <input type="submit" value="Valider" name="valider">
