@@ -64,7 +64,7 @@ class PdoGsb{
   public function getAllVisiteur(){
     $req="select * from visiteur order by nom";
     $res=  PdoGsb::$monPdo->query($req);
-    $visiteur = $res->fetch();
+    $visiteur = $res->fetchAll();
     return $visiteur;
   }
 

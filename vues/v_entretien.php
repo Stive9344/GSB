@@ -30,11 +30,13 @@
     <label>Participant<label>
       <?php
       $allVisiteur=$pdo->getAllVisiteur();
-      var_dump($allVisiteur);
       ?>
     <select name="participant" id="participant" size="1">
-      <option>Test</option>
-      <option>Test2</option>
+      <?php
+        for($i=0; $i<sizeof($allVisiteur);$i++){?>
+          <option value="<?=$allVisiteur[$i]['id']?>"><?=$allVisiteur[$i]['nom'].' '.$allVisiteur[$i]['prenom']?></option><?php
+        }
+       ?>
     </select>
     Commentaire :<br>
     <TEXTAREA name="commentaire" rows="10" cols="100%"></TEXTAREA>
