@@ -336,5 +336,12 @@ class PdoGsb{
     $recapEntretien = $res->fetchAll();
     return $recapEntretien;
   }
+
+  public function getGrade($idVisiteur){
+    $req = "select codeGrade from visiteur where id = '$idVisiteur'"
+    $res = PdoGsb::$monPdo->query($req);
+    $codeGrade = $res->fetchAll();
+    return $codeGrade;
+  }
 }
 ?>
