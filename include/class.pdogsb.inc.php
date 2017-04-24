@@ -324,7 +324,11 @@ class PdoGsb{
   public function insertEntretien($date, $commentaire, $recommandation, $participant){
     $req ="insert into entretien values (NULL, '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
-    $participer="insert into participer values ('$participant', '','')";
+    $annee=substr($date,0,4);
+    $date="insert into date values('$annee')";
+    PdoGsb::$monPdo->exec($date);
+    $participer="insert into participer values ('$participant', '".PdoGsb::$monPdo->lastInsertId()."','$annee', 0)";
+    PdoGsb::$monPdo->exec($participer);
   }
 
   public function getRecapEntretien($idEntretien){
