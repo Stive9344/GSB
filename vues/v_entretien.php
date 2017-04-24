@@ -24,7 +24,7 @@
       $allVisiteur=$pdo->getAllVisiteur();
       ?>
     <select name="participant" id="participant" size="1">
-      <option value="default">-------------------------</option>
+      <option value="null">-------------------------</option>
       <?php
         for($i=0; $i<sizeof($allVisiteur);$i++){?>
           <option value="<?=$allVisiteur[$i]['id']?>"><?=$allVisiteur[$i]['nom'].' '.$allVisiteur[$i]['prenom']?></option><?php
