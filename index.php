@@ -22,6 +22,9 @@ switch($uc){
   case 'gererEntretien':{
 		include("controleurs/c_gererEntretien.php");break;
 	}
+  case 'gererHistorique':{
+		include("controleurs/c_gererHistorique.php");break;
+	}
 }
 include("vues/v_pied.php");
 ?>

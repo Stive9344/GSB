@@ -277,6 +277,14 @@ class PdoGsb{
 		}
 		return $lesMois;
 	}
+
+  public function getLesEntretiens($idVisiteur){
+    $req = "select * from entretien";
+    $res = PdoGsb::$monPdo->query($req);
+    $laLigne = $res->fetchAll();
+    return $laLigne;
+  }
+
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
 

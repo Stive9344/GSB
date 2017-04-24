@@ -21,6 +21,9 @@
            <li class="smenu">
               <a href="index.php?uc=gererEntretien&action=EnregistrerEntretien" title="Consultation des entretiens">Entretien</a>
            </li>
+           <li class="smenu">
+              <a href="index.php?uc=gererHistorique&action=voirHistorique" title="Historique des entretiens">Historique entretien</a>
+           </li>
          </br>
  	         <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
