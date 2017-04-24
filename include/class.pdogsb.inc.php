@@ -134,6 +134,11 @@ class PdoGsb{
 		return $lesLignes;
 	}
 
+  public function insertEntretien($date){
+    $req ="INSERT INTO entretien (jour) VALUES ('$date')";
+    $res = PdoGsb::$monPdo->query($req);
+    return $req;
+  }
 /**
  * Met à jour la table ligneFraisForfait
 
@@ -313,11 +318,5 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
-
-  public function insertEntretien($date, $commentaire, $recommandation){
-    $req ="insert into entretien values (NULL, '$commentaire', '$recommandation', '$date')";
-    PdoGsb::$monPdo->exec($req);
-  }
 }
-
 ?>
