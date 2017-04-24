@@ -16,6 +16,7 @@ switch($action){
 	case'recapEntretien': {
 		include("vues/v_recapEntretien.php");
 		break;
+	}
 }
 }
 ?>

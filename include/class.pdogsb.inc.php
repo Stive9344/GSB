@@ -279,18 +279,11 @@ class PdoGsb{
 	}
 
   public function getLesEntretiens($idVisiteur){
-    $req = "select * from entretien";
+    $req = "select * from entretien,participer where participer.idEntretien = entretien.id and participer.idVisiteur = '$idVisiteur'";
     $res = PdoGsb::$monPdo->query($req);
     $laLigne = $res->fetchAll();
     return $laLigne;
   }
-
-  public function validerEntretiens($idEntretien){
-  $req = "update participer set validé = 1";
-  $res = PdoGsb::$monPdo->query($req);
-  $laLigne = $res->fetchAll();
-  return $laLigne;
-}
 
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
