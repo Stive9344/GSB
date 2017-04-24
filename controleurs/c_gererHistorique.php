@@ -6,7 +6,7 @@ switch($action){
 	case 'voirHistorique':{
 		$lesEntretiens = $pdo->getLesEntretiens($idVisiteur);
 		include("vues/v_Historique.php");
-		
+
 		break;
 	}
 }

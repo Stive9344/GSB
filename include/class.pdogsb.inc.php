@@ -318,6 +318,13 @@ class PdoGsb{
     $req ="insert into entretien values (NULL, '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
   }
+
+  public function getRecapEntretien($idEntretien){
+    $req = "select * from entretien where idEntretien ='$idEntretien'";
+    $res = PdoGsb::$monPdo->query($req);
+    $recapEntretien = $res->fetchAll();
+    return $recapEntretien;
+  }
 }
 
 ?>

@@ -13,5 +13,8 @@ switch($action){
 		include("vues/v_entretien.php");
 		break;
 	}
+	case'recapEntretien': {
+		include("vues/v_recapEntretien.php");
+		break;
 }
 ?>
