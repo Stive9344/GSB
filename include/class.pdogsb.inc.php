@@ -338,7 +338,7 @@ class PdoGsb{
   }
 
   public function getGrade($idVisiteur){
-    $req = "select codeGrade from visiteur where id = '$idVisiteur'"
+    $req = "select codeGrade from visiteur where id = '$idVisiteur'";
     $res = PdoGsb::$monPdo->query($req);
     $codeGrade = $res->fetchAll();
     return $codeGrade;
