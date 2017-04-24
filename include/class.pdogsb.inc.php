@@ -285,6 +285,13 @@ class PdoGsb{
     return $laLigne;
   }
 
+  public function validerEntretiens($idEntretien){
+  $req = "update participer set validé = 1";
+  $res = PdoGsb::$monPdo->query($req);
+  $laLigne = $res->fetchAll();
+  return $laLigne;
+}
+
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
 
