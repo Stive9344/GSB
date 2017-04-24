@@ -16,34 +16,27 @@
       <h2>Entretien</h2>
 
 
-<?php
-  if(!empty($_POST['date'])){
-    $date=$_POST['date'];
-    echo $date;
-    $pdo->insertEntretien($date);
-  }
-?>
 
-
-  <form method="POST" action="index.php?uc=gererEntretien&action=EnregistrerEntretien">
-    <p>Date: <input type="text" id="datepicker" name="date"></p>
-    <label>Participant<label>
+  <form method="POST" action="index.php?uc=gererEntretien&action=ajoutEntretien">
+    <p>Date: <input type="text" name="datepicker"id="datepicker"></p>
+    <label>Participant :<label>
       <?php
       $allVisiteur=$pdo->getAllVisiteur();
       ?>
     <select name="participant" id="participant" size="1">
+      <option value="default">-------------------------</option>
       <?php
         for($i=0; $i<sizeof($allVisiteur);$i++){?>
           <option value="<?=$allVisiteur[$i]['id']?>"><?=$allVisiteur[$i]['nom'].' '.$allVisiteur[$i]['prenom']?></option><?php
         }
        ?>
-    </select>
+    </select><br><br>
     Commentaire :<br>
-    <TEXTAREA name="commentaire" rows="10" cols="100%"></TEXTAREA>
+    <TEXTAREA name="commentaire" id="commentaire"rows="10" cols="100%"></TEXTAREA>
     <br/>
     <br/>
     Recommandation :<br>
-    <TEXTAREA name="commentaire" rows="10" cols="100%"></TEXTAREA>
+    <TEXTAREA name="recommandation" id="recommandation" rows="10" cols="100%"></TEXTAREA>
     <br/>
     <br/>
     <input type="submit" value="Valider" name="valider">

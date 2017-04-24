@@ -8,5 +8,10 @@ switch($action){
 
 		break;
 	}
+	case 'ajoutEntretien':{
+		include("vues/v_ajoutEntretien.php");
+		include("vues/v_entretien.php");
+		break;
+	}
 }
 ?>
