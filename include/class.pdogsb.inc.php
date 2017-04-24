@@ -314,9 +314,10 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-  public function insertEntretien($date, $commentaire, $recommandation){
+  public function insertEntretien($date, $commentaire, $recommandation, $participant){
     $req ="insert into entretien values (NULL, '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
+    $participer="insert into participer values ('$participant', '','')"
   }
 }
 ?>
