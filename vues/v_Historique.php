@@ -3,7 +3,8 @@
     <?php
     foreach ($lesEntretiens as $unEntretien){
       echo '<form method="POST" action="index.php?uc=gererEntretien&action=recapEntretien">';
-      echo 'Entretien '.$unEntretien['id'];
+      echo 'Entretien n°'.$unEntretien['id'];
+      echo '<input type="hidden" value="'.$unEntretien['id'].'" name="idEntretien" />';
       echo '<br>';
       echo 'Date : '.$unEntretien['jour'];
       echo '<br>';
