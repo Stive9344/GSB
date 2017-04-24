@@ -61,6 +61,13 @@ class PdoGsb{
 		return $ligne;
 	}
 
+  public function getAllVisiteur(){
+    $req="select * from visiteur order by nom";
+    $res=  PdoGsb::$monPdo->query($req);
+    $visiteur = $res->fetchAll();
+    return $visiteur;
+  }
+
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
  * concernées par les deux arguments
@@ -126,6 +133,12 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;
 	}
+
+  public function insertEntretien($date){
+    $req ="INSERT INTO entretien (jour) VALUES ('$date')";
+    $res = PdoGsb::$monPdo->query($req);
+    return $req;
+  }
 /**
  * Met à jour la table ligneFraisForfait
 

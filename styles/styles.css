@@ -177,6 +177,10 @@ taille de caract�res l�g�rement sup�rieure � la normale */
    font-size:1.1em;
    width:95%;
 }
+.confirme{
+    color:rgb(255, 0, 0);
+  }
+
 .centre {
   text-align:center;
 }

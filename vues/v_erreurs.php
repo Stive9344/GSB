@@ -1,6 +1,6 @@
 <div class ="erreur">
 <ul>
-<?php 
+<?php
 foreach($_REQUEST['erreurs'] as $erreur)
 	{
       echo "<li>$erreur</li>";
