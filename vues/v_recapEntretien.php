@@ -1,7 +1,6 @@
 
       <?php
-          //$idEntretien = $_GET['idEntretien'];
-          $idEntretien = 1;
+          $idEntretien = $_POST['idEntretien'];
 
           //Requête
           $recapEntretien = $pdo->getRecapEntretien($idEntretien);
@@ -10,7 +9,11 @@
               echo"<td>Date : ".$recapEntretien[0]['jour']."</td>";
             echo"</tr>";
             echo"<tr>";
-              echo"<td>Participant : ".$recapEntretien['participant']."</td>";
+              echo"<h3>Participant :</h3>";
+                echo"<tr>";
+                  echo"<h3>Nom : ".$recapEntretien[0]['nomVisiteur']."</h3>";
+                  echo"<h3>Prénom : ".$recapEntretien[0]['prenomVisiteur']."</h3>";
+                echo"</tr>";
             echo"</tr>";
           echo"</table>";
 

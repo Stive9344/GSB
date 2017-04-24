@@ -325,7 +325,13 @@ class PdoGsb{
   }
 
   public function getRecapEntretien($idEntretien){
-    $req = "select * from entretien where id ='$idEntretien'";
+    $req = "select entretien.commentaire as commentaire, entretien.recommandation as recommandation,
+     entretien.jour as jour, participer.idVisiteur as idVisiteur,
+     visiteur.nom as nomVisiteur, visiteur.prenom as prenomVisiteur
+     from entretien, participer, visiteur
+     where entretien.id ='$idEntretien'
+     and participer.idEntretien ='$idEntretien'
+     and visiteur.id = idVisiteur";
     $res = PdoGsb::$monPdo->query($req);
     $recapEntretien = $res->fetchAll();
     return $recapEntretien;
