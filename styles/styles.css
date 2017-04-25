@@ -66,8 +66,9 @@ ul#menuList{
     list-style:none;
     margin:0px;
     padding:0px;
-    width:98%;
-    font-size: 1em;
+    width:100%;
+    font-size: 1.5em;
+    font-family: Arial;
 }
 
 /* style � appliquer aux �l�ments de la balise ul d'identifiant menulist */
@@ -80,6 +81,7 @@ ul#menuList li {
 /* apparences des liens dans listes et sous-listes non num�rot�es */
 ul#menuList a {
     color:rgb(0,85,227);
+    border-radius: 2px;
     display:block;
     text-decoration:none;
     width:100%;
