@@ -40,7 +40,7 @@ body{
 	background-color: white;
 	color: rgb(0,85,227);
 	float: left;
-	width: 14%;
+	width: 13%;
 }
 
 #contenu{
@@ -68,8 +68,8 @@ ul#menuList{
     list-style:none;
     margin:0.1px;
     padding:0.1px;
-    width:98%;
-    font-size: 1.5em;
+    width:100%;
+    font-size: 1em;
     font-family: Arial;
 }
 
