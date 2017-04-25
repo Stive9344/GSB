@@ -322,7 +322,7 @@ class PdoGsb{
     PdoGsb::$monPdo->exec($date);
     $participer="insert into participer values ('$participant', '".PdoGsb::$monPdo->lastInsertId()."','$annee', 0)";
     PdoGsb::$monPdo->exec($participer);
-    $objectif = "insert into objectif values (NULL, '$codeGrade', '$libelleObjectif', '$NbPoint')";
+    $objectif = "insert into objectif values (NULL, '$codeGrade', '$objectif', '$NbPoint')";
     PdoGsb::$monPdo->exec($objectif
   );
   }
