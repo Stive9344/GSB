@@ -322,6 +322,9 @@ class PdoGsb{
     PdoGsb::$monPdo->exec($date);
     $participer="insert into participer values ('$participant', '".PdoGsb::$monPdo->lastInsertId()."','$annee', 0)";
     PdoGsb::$monPdo->exec($participer);
+    $objectif = "insert into objectif values (NULL, '$codeGrade', '$libelleObjectif', '$NbPoint')";
+    PdoGsb::$monPdo->exec($objectif
+  );
   }
 
   public function getRecapEntretien($idEntretien){
@@ -342,6 +345,11 @@ class PdoGsb{
     $res = PdoGsb::$monPdo->query($req);
     $codeGrade = $res->fetchAll();
     return $codeGrade;
+  }
+
+  public function validerEntretien($idEntretien){
+    $req = "update participer set validé = 1 where idEntretien = '$idEntretien'";
+    PdoGsb::$monPdo->exec($req);
   }
 }
 ?>
