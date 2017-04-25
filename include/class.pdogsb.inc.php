@@ -325,7 +325,7 @@ class PdoGsb{
   }
 
   public function getRecapEntretien($idEntretien){
-    $req = "select entretien.commentaire as commentaire, entretien.recommandation as recommandation,
+    $req = "select entretien.commentaire as commentaire,entretien.objectif as objectif, entretien.recommandation as recommandation,
      entretien.jour as jour, participer.idVisiteur as idVisiteur,
      visiteur.nom as nomVisiteur, visiteur.prenom as prenomVisiteur
      from entretien, participer, visiteur
