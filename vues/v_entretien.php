@@ -15,15 +15,14 @@
 <div id="contenu">
       <h2>Entretien</h2>
 
-
-
+<script src="include/fct.inc.js"></script>
   <form method="POST" action="index.php?uc=gererEntretien&action=ajoutEntretien">
     <p>Date: <input type="text" name="datepicker"id="datepicker"></p>
     <label>Participant :<label>
       <?php
       $allVisiteur=$pdo->getAllVisiteur();
       ?>
-    <select name="participant" id="participant" size="1">
+    <select name="participant" id="participant" size="1" onchange="loadPart('vues/test.php', 'grade', this.value); deloptions(this.value)">
       <option value="null">-------------------------</option>
       <?php
         for($i=0; $i<sizeof($allVisiteur);$i++){?>
@@ -38,7 +37,9 @@
     <input id='points' type='number' min='1' max='10' name='points'> &emsp; </input>
     <br/>
     <br/>
-
+  Grade :<br>
+  <div id="grade">
+  </div>
     Commentaire :<br>
     <TEXTAREA name="commentaire" id="commentaire"rows="5" cols="100%"></TEXTAREA>
     <br/>
