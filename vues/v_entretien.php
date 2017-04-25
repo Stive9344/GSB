@@ -32,9 +32,13 @@
        ?>
     </select><br><br>
     Objectif :<br>
-    <TEXTAREA name="objectif" id="objectif"rows="5" cols="100%"></TEXTAREA>
+    <TEXTAREA name="objectif" id="objectif"rows="5" cols="70%"></TEXTAREA>
+    <br/>
+    Points :<br>
+    <input id='points' type='number' min='1' max='10' name='points'> &emsp; </input>
     <br/>
     <br/>
+
     Commentaire :<br>
     <TEXTAREA name="commentaire" id="commentaire"rows="5" cols="100%"></TEXTAREA>
     <br/>
