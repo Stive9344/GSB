@@ -25,19 +25,20 @@
     <select name="participant" id="participant" size="1" onchange="loadPart('vues/grade.php', 'grade', this.value); deloptions(this.value)">
       <option value="null">-------------------------</option>
       <?php
-        for($i=0; $i<sizeof($allVisiteur);$i++){?>
+        for($i=0; $i<sizeof($allVisiteur);$i++){
+          if($_SESSION['idVisiteur']!=$allVisiteur[$i]['id']){?>
           <option value="<?=$allVisiteur[$i]['id']?>"><?=$allVisiteur[$i]['nom'].' '.$allVisiteur[$i]['prenom']?></option><?php
         }
+      }
        ?>
     </select><br><br>
     Objectif :<br>
-    <TEXTAREA name="objectif" id="objectif"rows="5" cols="70%"></TEXTAREA>
+    <TEXTAREA name="objectif" id="objectif"rows="4" cols="50%"></TEXTAREA>
     <br/>
     Points :<br>
     <input id='points' type='number' min='1' max='10' name='points'> &emsp; </input>
     <br/>
     <br/>
-  Grade :<br>
   <div id="grade">
   </div>
     Commentaire :<br>

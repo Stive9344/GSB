@@ -10,8 +10,9 @@ if($idVisiteur!=null){
     $libelleGradeCourant=$pdo->getLibelleGrade($grade[0]['codeGrade']);
     $libelelGradeDessus=$pdo->getLibelleGrade($grade[0]['codeGrade']+1);
     if(!empty($libelleGradeCourant[0]['libelle'])){?>
+      Grade :<br>
       <input type="radio" name="grade" value="<?=$grade[0]['codeGrade']?>"><?php
-      echo $libelleGradeCourant[0]['libelle']."<br>";
+      echo $libelleGradeCourant[0]['libelle'];
     }
   if(!empty($libelelGradeDessus[0]['libelle'])){?>
     <input type="radio" name="grade" value="<?=$grade[0]['codeGrade']+1?>">
