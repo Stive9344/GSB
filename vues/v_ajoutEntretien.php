@@ -11,6 +11,12 @@
   else {
     $recommandation=null;
   }
-  $pdo->insertEntretien($_POST['datepicker'], $commentaire, $recommandation, $_POST['participant']);
+  if(!empty($_POST['objectif'])){
+    $objectif=$_POST['objectif'];
+  }
+  else {
+    $objectif=null;
+  }
+  $pdo->insertEntretien($_POST['datepicker'], $objectif, $commentaire, $recommandation, $_POST['participant']);
 
 ?>

@@ -314,8 +314,8 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-  public function insertEntretien($date, $commentaire, $recommandation, $participant){
-    $req ="insert into entretien values (NULL, '$commentaire', '$recommandation', '$date')";
+  public function insertEntretien($date, $objectif, $commentaire, $recommandation, $participant){
+    $req ="insert into entretien values (NULL,'$objectif', '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
     $annee=substr($date,0,4);
     $date="insert into date values('$annee')";

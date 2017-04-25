@@ -31,12 +31,16 @@
         }
        ?>
     </select><br><br>
+    Objectif :<br>
+    <TEXTAREA name="objectif" id="objectif"rows="5" cols="100%"></TEXTAREA>
+    <br/>
+    <br/>
     Commentaire :<br>
-    <TEXTAREA name="commentaire" id="commentaire"rows="10" cols="100%"></TEXTAREA>
+    <TEXTAREA name="commentaire" id="commentaire"rows="5" cols="100%"></TEXTAREA>
     <br/>
     <br/>
     Recommandation :<br>
-    <TEXTAREA name="recommandation" id="recommandation" rows="10" cols="100%"></TEXTAREA>
+    <TEXTAREA name="recommandation" id="recommandation" rows="5" cols="100%"></TEXTAREA>
     <br/>
     <br/>
     <input type="submit" value="Valider" name="valider">
