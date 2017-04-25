@@ -9,6 +9,8 @@
       <h2>Recapitulatif Entretien</h2>
       <?php
           $idEntretien = $_POST['idEntretien'];
+          $idVisiteur=$_SESSION['idVisiteur'];
+          $grade=$pdo->getGrade($idVisiteur);
 
           //Requête
           $recapEntretien = $pdo->getRecapEntretien($idEntretien);
@@ -22,7 +24,9 @@
               echo"<br>";
               echo"<br>";
               echo '<input type="submit" value="Valider" name="valider">';
-              echo '<input type="submit" value="Modifier" name="Modifier">';
+              if($grade[0]['codeGrade']!=1 && $grade[0]['codeGrade']!=null){
+                echo '<input type="submit" value="Modifier" name="Modifier">';
+              };
             echo"</table>";
        ?>
 </div>

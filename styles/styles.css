@@ -66,9 +66,9 @@ html>body #contenu{
 /* style � appliquer � la balise ul d'identifiant menulist */
 ul#menuList{
     list-style:none;
-    margin:0px;
-    padding:0px;
-    width:100%;
+    margin:0.1px;
+    padding:0.1px;
+    width:98%;
     font-size: 1.5em;
     font-family: Arial;
 }
