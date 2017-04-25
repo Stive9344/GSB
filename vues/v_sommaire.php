@@ -18,9 +18,14 @@
            <li class="smenu">
               <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
            </li>
-           <li class="smenu">
+           <?php
+           $idVisiteur=$_SESSION['idVisiteur'];
+           $grade=$pdo->getGrade($idVisiteur);
+           if($grade[0]['codeGrade']!=1 && $grade[0]['codeGrade']!=null){?>
+             <li class="smenu">
               <a href="index.php?uc=gererEntretien&action=EnregistrerEntretien" title="Ajout des entretiens">Entretien</a>
-           </li>
+           </li><?php
+           }?>
            <li class="smenu">
               <a href="index.php?uc=gererHistorique&action=voirHistorique" title="Historique des entretiens">Historique entretien</a>
            </li>
