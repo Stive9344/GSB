@@ -314,7 +314,7 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-  public function insertEntretien($date, $objectif, $commentaire, $recommandation, $participant){
+  public function insertEntretien($date, $objectif, $point, $commentaire, $recommandation, $participant){
     $req ="insert into entretien values (NULL,'$objectif', '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
     $annee=substr($date,0,4);
@@ -322,9 +322,8 @@ class PdoGsb{
     PdoGsb::$monPdo->exec($date);
     $participer="insert into participer values ('$participant', '".PdoGsb::$monPdo->lastInsertId()."','$annee', 0)";
     PdoGsb::$monPdo->exec($participer);
-    $objectif = "insert into objectif values (NULL, '$codeGrade', '$objectif', '$NbPoint')";
-    PdoGsb::$monPdo->exec($objectif
-  );
+    $objectif = "insert into objectif values (NULL, '$codeGrade', '$objectif', '$point')";
+    PdoGsb::$monPdo->exec($objectif);
   }
 
   public function getRecapEntretien($idEntretien){
@@ -345,6 +344,14 @@ class PdoGsb{
     $res = PdoGsb::$monPdo->query($req);
     $codeGrade = $res->fetchAll();
     return $codeGrade;
+  }
+
+  public function getLibelleGrade($idGrade){
+    $req = "select libelle from grade where code= '$idGrade'";
+    $res = PdoGsb::$monPdo->query($req);
+    $libelleGrade = $res->fetchAll();
+    return $libelleGrade;
+
   }
 
   public function validerEntretien($idEntretien){
