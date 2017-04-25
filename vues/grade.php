@@ -6,15 +6,15 @@ $idVisiteur=$_POST['id'];
   $pdo = PdoGsb::getPdoGsb();
 
 if($idVisiteur!=null){
-    $test=$pdo->getGrade($idVisiteur);
-    $test1=$pdo->getLibelleGrade($test[0]['codeGrade']);
-    $test2=$pdo->getLibelleGrade($test[0]['codeGrade']+1);
-    if(!empty($test1[0]['libelle'])){?>
-      <input type="radio" name="grade" value="test"><?php
-      echo $test1[0]['libelle']."<br>";
+    $grade=$pdo->getGrade($idVisiteur);
+    $libelleGradeCourant=$pdo->getLibelleGrade($grade[0]['codeGrade']);
+    $libelelGradeDessus=$pdo->getLibelleGrade($grade[0]['codeGrade']+1);
+    if(!empty($libelleGradeCourant[0]['libelle'])){?>
+      <input type="radio" name="grade" value="<?=$grade[0]['codeGrade']?>"><?php
+      echo $libelleGradeCourant[0]['libelle']."<br>";
     }
-  if(!empty($test2[0]['libelle'])){?>
-    <input type="radio" name="grade" value="test">
-    <?=$test2[0]['libelle']?><br><?php
+  if(!empty($libelelGradeDessus[0]['libelle'])){?>
+    <input type="radio" name="grade" value="<?=$grade[0]['codeGrade']+1?>">
+    <?=$libelelGradeDessus[0]['libelle']?><br><?php
   }
 }?>

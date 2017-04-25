@@ -22,7 +22,7 @@
       <?php
       $allVisiteur=$pdo->getAllVisiteur();
       ?>
-    <select name="participant" id="participant" size="1" onchange="loadPart('vues/test.php', 'grade', this.value); deloptions(this.value)">
+    <select name="participant" id="participant" size="1" onchange="loadPart('vues/grade.php', 'grade', this.value); deloptions(this.value)">
       <option value="null">-------------------------</option>
       <?php
         for($i=0; $i<sizeof($allVisiteur);$i++){?>
