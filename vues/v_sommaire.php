@@ -8,7 +8,7 @@
 
       </div>
         <ul id="menuList">
-        <li>
+        <li style = "font-family: Arial Black">
           Visiteur :<br>
           <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?><br><br>
         </li>

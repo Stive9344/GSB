@@ -13,19 +13,21 @@ body{
   width : 65%;
   margin : auto ;
   border : 0.2em solid black;
-  padding : 0.1em;
+  border-radius: 10px;
+  padding : 0.25em;
 }
 #entete{
-  background-color:rgb(72,198,236);
-	color : #980101;
-	border: solid 0.1em #980101;
+  background-color:#48c6ec;
+	color : #000000;
+  font-family: Arial;
+	border: solid 0.1em #000000;
 	height: 154px;
-	padding: 0em;
-	border-collapse: separate;
+	padding: 1.5em;
+	border-radius: 5px;
 }
 #pied{
   clear : both;
-	border : solid 0.2em #980101;
+	border : solid 0.2em #48c6ec;
 	margin-left : 18%;
 	margin-top : 1em;
 	padding:0.4em;
@@ -33,8 +35,8 @@ body{
 	border-collapse: separate;
 }
 #menuGauche {
-	margin-top : 0.8em;
-	padding: 1em;
+	margin-top : 0em;
+	padding: 1.5em;
 	background-color: white;
 	color: rgb(0,85,227);
 	float: left;
@@ -43,10 +45,10 @@ body{
 
 #contenu{
 	border: none;
-	padding: 1.3em;
+	padding: 1em;
 	background-color: white;
-	border-left :  groove 0.8em #980101;
-  margin-top : 1.2em;
+	border-left :  double 0.8em #1caaf0;
+  margin-top : 0em;
 	margin-left: 18%;
 /* permet de fixer une hauteur mini sur les navigateurs modernes */
   min-height:27em;
@@ -98,21 +100,15 @@ ul#menuList a:hover {
 }
 
 #entete h1 {
-  margin : 1em;
+  margin : 1.5em;
   margin-left:6em;
-  font-size : x-large;
+  font-size : 30px;
   text-align:center;
 }
 
 #contenu pre {
   width:95%;
   overflow : scroll;
-}
-#contenu h2 {
-  font-size : large;
-  text-align:left;
-  margin:0;
-  margin-bottom:0.5em;
 }
 
 .logoValidW3c {
@@ -257,7 +253,7 @@ table.listeLegere {
 /* Tableaux quadrill�s utilis�s pour l'affichage de listes avec contenu l�ger*/
 table.listeLegere th, table.listeLegere td {
   border : dotted rgb(178,207,81) 0.1em;
-  padding:0.5em;
+  padding:0em;
   vertical-align : top;
   text-align : left;
 }
@@ -284,15 +280,15 @@ table.listeLegere th.libelle{
 }
 
 #contenu h2 {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	color: #1D2941;
-	text-decoration: none;
-	border : 1px solid #6988BE;
+	font-family: Arial;
+	font-size: 20px;
+	color: #000000;
+	border : 2px solid #48c6ec;
 	padding-left: 25px;
-	background-color: #E9F1FE;
-  height : 28px;
+	background-color: rgba(72, 198, 236, 0.54);
+  height : 30px;
+  text-align:center;
+  margin:0;
 }
 
 #contenu img {
