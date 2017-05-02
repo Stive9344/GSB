@@ -333,13 +333,24 @@ class PdoGsb{
   }
 
   public function getRecapEntretien($idEntretien){
-    $req = "select entretien.commentaire as commentaire,entretien.objectif as objectif, entretien.recommandation as recommandation,
+    $reqVisiteur = "select idVisiteur from participer where idEntretien = '$idEntretien'";
+    $resVisiteur = PdoGsb::$monPdo->query($reqVisiteur);
+    $idVisiteur = $resVisiteur->fetch();
+    $reqObjectif = "select idObjectif from fixer where idEntretien = '$idEntretien'";
+    $resObjectif = PdoGsb::$monPdo->query($reqObjectif);
+    $idObjectif = $resObjectif->fetch();
+    $req = "select entretien.commentaire as commentaire, objectif.libelle as objectif,
+     objectif.points as points, fixer.atteint as atteint,
+     entretien.recommandation as recommandation,
      entretien.jour as jour, participer.idVisiteur as idVisiteur,
-     visiteur.nom as nomVisiteur, visiteur.prenom as prenomVisiteur
-     from entretien, participer, visiteur
-     where entretien.id ='$idEntretien'
-     and participer.idEntretien ='$idEntretien'
-     and visiteur.id = idVisiteur";
+     visiteur.nom as nomVisiteur, visiteur.prenom as prenomVisiteur,
+     participer.validé as etatEntretien
+     from entretien, participer, visiteur, fixer, objectif
+     where entretien.id =".$idEntretien."
+     and participer.idEntretien =".$idEntretien."
+     and visiteur.id = ".$idVisiteur[0]."
+     and fixer.idEntretien = ".$idEntretien."
+     and fixer.idObjectif = ".$idObjectif[0];
     $res = PdoGsb::$monPdo->query($req);
     $recapEntretien = $res->fetchAll();
     return $recapEntretien;
