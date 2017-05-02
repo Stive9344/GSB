@@ -26,9 +26,9 @@
       <option value="null">-------------------------</option>
       <?php
         for($i=0; $i<sizeof($allVisiteur);$i++){
-          if($_SESSION['idVisiteur']!=$allVisiteur[$i]['id']){?>
+          //if($_SESSION['idVisiteur']!=$allVisiteur[$i]['id']){?>
           <option value="<?=$allVisiteur[$i]['id']?>"><?=$allVisiteur[$i]['nom'].' '.$allVisiteur[$i]['prenom']?></option><?php
-        }
+        //}
       }
        ?>
     </select><br><br>
