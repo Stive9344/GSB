@@ -314,16 +314,22 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);
 	}
 
-  public function insertEntretien($date, $objectif, $point, $commentaire, $recommandation, $participant){
+  public function insertEntretien($date, $objectif, $point, $commentaire, $recommandation, $participant, $gradeObjectif){
     $req ="insert into entretien values (NULL,'$objectif', '$commentaire', '$recommandation', '$date')";
     PdoGsb::$monPdo->exec($req);
     $annee=substr($date,0,4);
     $date="insert into date values('$annee')";
     PdoGsb::$monPdo->exec($date);
-    $participer="insert into participer values ('$participant', '".PdoGsb::$monPdo->lastInsertId()."','$annee', 0)";
+    $idEntretien=PdoGsb::$monPdo->lastInsertId();
+    $participer="insert into participer values ('$participant', '$idEntretien','$annee', 0)";
     PdoGsb::$monPdo->exec($participer);
-    $objectif = "insert into objectif values (NULL, '$codeGrade', '$objectif', '$point')";
-    PdoGsb::$monPdo->exec($objectif);
+    if(!empty($objectif)){
+      $objectif = "insert into objectif values (NULL, '$gradeObjectif', '$objectif', '$point')";
+      PdoGsb::$monPdo->exec($objectif);
+      $idObjectif=PdoGsb::$monPdo->lastInsertId();
+      $fixer="insert into fixer values ('$idEntretien','$idObjectif',0)";
+      PdoGsb::$monPdo->exec($fixer);
+    }
   }
 
   public function getRecapEntretien($idEntretien){
