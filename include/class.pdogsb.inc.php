@@ -284,6 +284,18 @@ class PdoGsb{
     $laLigne = $res->fetchAll();
     return $laLigne;
   }
+  public function getLesEntretiensDelegues($idDelegue){
+    $req="select e.id as id, e.jour, v.nom, v.prenom from entretien e, visiteur v, participer p where e.id=p.idEntretien and v.id=p.idVisiteur and idLier='$idDelegue'";
+    $res = PdoGsb::$monPdo->query($req);
+    $laLigne = $res->fetchAll();
+    return $laLigne;
+  }
+  public function getLesDeleguesDuResponsable($idResponsable){
+    $req="select * from visiteur where codeGrade=2 and idLier='$idResponsable'";
+    $res = PdoGsb::$monPdo->query($req);
+    $laLigne = $res->fetchAll();
+    return $laLigne;
+  }
 
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
