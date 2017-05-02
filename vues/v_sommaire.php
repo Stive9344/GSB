@@ -8,9 +8,9 @@
 
       </div>
         <ul id="menuList">
-        <li style = "font-family: Arial Black">
-          Visiteur :<br>
-          <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?><br><br>
+        <li style = "font-family: Arial Black"><?php
+            $grade=$pdo->getLibelleGrade($_SESSION['codeGrade']);?>
+          <?php echo $grade['0']['libelle'].':<br>'.$_SESSION['prenom']."  ".$_SESSION['nom']  ?><br><br>
         </li>
           <li class="smenu">
               <a href="index.php?uc=gererFrais&action=saisirFrais" title="Saisie fiche de frais ">Saisie fiche de frais</a><br>
