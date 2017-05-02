@@ -37,3 +37,56 @@ function deloptions(options){
   if(document.getElementById('participant').options[0].value == "null")
         document.getElementById('participant').remove(0);
 }
+
+function verifForm(){
+  var ready = true;
+  var msg = "Vous avez oublié les champs suivants:\n";
+  var msgBegin = true;
+
+  var styleBorder = "1px solid rgba(255, 0, 0, .8)";
+  var styleFile = "border: 1px solid rgba(255, 0, 0, .8); border-radius: 3px;";
+
+  if(document.getElementById('participant').value=='null'){
+    document.getElementById('participant').style.border = styleBorder;
+    msg += "Le nom du participant";
+    msgBegin = false;
+    ready = false;
+  }
+
+  if(document.getElementById('datepicker').value==''){
+    document.getElementById('datepicker').style.border = styleBorder;
+    if(!msgBegin){
+      msg += ", ";
+    }
+    else{
+      msgBegin = false;
+    }
+    msg += "La date de l'entretien";
+    ready = false;
+  }
+
+  if(document.getElementById('objectif').value!=''){
+    if(document.getElementById('points').value==''){
+      document.getElementById('points').style.border = styleBorder;
+      if(!msgBegin){
+        msg += ", ";
+      }
+      else{
+        msgBegin = false;
+      }
+      msg += "Le nombre de point pour un objectif";
+      ready = false;
+    }
+  }
+  if(!msgBegin){
+    msg += ".";
+  }
+
+  //message indiquant les champs manquants
+  if(!ready){
+    alert(msg);
+  }
+  else{
+    document.getElementById('form_add_entretien').submit();
+  }
+}

@@ -23,8 +23,11 @@
   else {
     $points=null;
   }
+  if(!empty($_POST['grade'])){
+    $grade=$_POST['grade'];
+  }
 
 
-  $pdo->insertEntretien($_POST['datepicker'], $objectif, $points, $commentaire, $recommandation, $_POST['participant'], $_POST['grade']);
+  $pdo->insertEntretien($_POST['datepicker'], $objectif, $points, $commentaire, $recommandation, $_POST['participant'], $grade);
 
 ?>

@@ -16,8 +16,8 @@
       <h2>Entretien</h2>
 
 <script src="include/fct.inc.js"></script>
-  <form method="POST" action="index.php?uc=gererEntretien&action=ajoutEntretien">
-    <p>Date: <input type="text" name="datepicker"id="datepicker"></p>
+  <form method="POST"  name="form_add_entretien" id="form_add_entretien" action="index.php?uc=gererEntretien&action=ajoutEntretien">
+    <p>Date: <input type="text" name="datepicker"id="datepicker" required></p>
     <label>Participant :<label>
       <?php
       $allVisiteur=$pdo->getAllVisiteur();
@@ -49,7 +49,7 @@
     <TEXTAREA name="recommandation" id="recommandation" rows="5" cols="100%"></TEXTAREA>
     <br/>
     <br/>
-    <input type="submit" value="Valider" name="valider">
+    <input type="button" value="Valider" name="valider" onclick="verifForm()">
     <input type="reset" value="Annuler" name="annuler">
   </form>
 
