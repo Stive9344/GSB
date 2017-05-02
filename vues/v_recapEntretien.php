@@ -8,21 +8,15 @@
 <div id="contenu">
       <h2>Recapitulatif Entretien</h2>
       <?php
-
           $idEntretien = $_POST['idEntretien'];
-<<<<<<< Updated upstream
           $idVisiteur=$_SESSION['idVisiteur'];
           $grade=$pdo->getGrade($idVisiteur);
-=======
->>>>>>> Stashed changes
-
           function refresh(){
             window.location.reload(false);
           }
           function valider(){
             $pdo->validerEntretien($idEntretien);
           }
-
           //Requête
           $recapEntretien = $pdo->getRecapEntretien($idEntretien);
             echo"<table>";
