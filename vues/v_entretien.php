@@ -13,7 +13,7 @@
   } );
   </script>
 <div id="contenu">
-      <h2>Entretien</h2>
+      <h2>Entretien</h2>TEST
 
 <script src="include/fct.inc.js"></script>
   <form method="POST"  name="form_add_entretien" id="form_add_entretien" action="index.php?uc=gererEntretien&action=ajoutEntretien">
