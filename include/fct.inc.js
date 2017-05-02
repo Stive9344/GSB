@@ -41,7 +41,7 @@ function deloptions(options){
 function verifForm(){
   var ready = true;
   var msg = "Vous avez oublié les champs suivants:\n";
-  var msgBegin = true;
+  var msgBegin = true; 
 
   var styleBorder = "1px solid rgba(255, 0, 0, .8)";
   var styleFile = "border: 1px solid rgba(255, 0, 0, .8); border-radius: 3px;";
