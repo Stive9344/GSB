@@ -328,20 +328,27 @@ class PdoGsb{
 
   public function insertEntretien($date, $objectif, $point, $commentaire, $recommandation, $participant, $gradeObjectif){
     $req ="insert into entretien values (NULL,'$objectif', '$commentaire', '$recommandation', '$date')";
-    PdoGsb::$monPdo->exec($req);
+    if(!PdoGsb::$monPdo->exec($req)){
+      return false;
+    }
     $annee=substr($date,0,4);
     $date="insert into date values('$annee')";
     PdoGsb::$monPdo->exec($date);
     $idEntretien=PdoGsb::$monPdo->lastInsertId();
     $participer="insert into participer values ('$participant', '$idEntretien','$annee', 0)";
-    PdoGsb::$monPdo->exec($participer);
-    if(!empty($objectif)){
-      $objectif = "insert into objectif values (NULL, '$gradeObjectif', '$objectif', '$point')";
-      PdoGsb::$monPdo->exec($objectif);
-      $idObjectif=PdoGsb::$monPdo->lastInsertId();
-      $fixer="insert into fixer values ('$idEntretien','$idObjectif',0)";
-      PdoGsb::$monPdo->exec($fixer);
+    if(!PdoGsb::$monPdo->exec($participer)){
+      return false;
     }
+    $objectif = "insert into objectif values (NULL, '$gradeObjectif', '$objectif', '$point')";
+    if(!PdoGsb::$monPdo->exec($objectif)){
+      return false;
+    }
+    $idObjectif=PdoGsb::$monPdo->lastInsertId();
+    $fixer="insert into fixer values ('$idEntretien','$idObjectif',0)";
+    if(!PdoGsb::$monPdo->exec($fixer)){
+      return false;
+    }
+    return $idEntretien;
   }
 
   public function getRecapEntretien($idEntretien){
@@ -355,7 +362,7 @@ class PdoGsb{
     return $recapEntretien;
   }
   public function getObjectifAtteint($idEntretien){
-    $req="select e.id, f.atteint, o.points from entretien e, objectif o, fixer f where e.id=f.idEntretien and o.id=f.idObjectif and e.id='$idEntretien'";
+    $req="select e.id, f.idObjectif, f.atteint, o.points from entretien e, objectif o, fixer f where e.id=f.idEntretien and o.id=f.idObjectif and e.id='$idEntretien'";
     $res = PdoGsb::$monPdo->query($req);
     $objectifAtteint = $res->fetchAll();
     return $objectifAtteint;
@@ -379,6 +386,21 @@ class PdoGsb{
   public function validerEntretien($idEntretien){
     $req = "update participer set validé = 1 where idEntretien = '$idEntretien'";
     PdoGsb::$monPdo->exec($req);
+  }
+
+  public function setEntretien($idEntretien, $commentaire, $recommandation, $objectif, $points, $idObjectif, $ancienObjectif, $ancienPoint, $ancienCommentaire, $ancienRecommandation){
+    $reussi=false;
+    $reqEntretien="update entretien set commentaire ='$commentaire', recommandation='$recommandation', objectif='$objectif' where id='$idEntretien'";
+    if($ancienCommentaire!=$commentaire || $ancienRecommandation!=$recommandation || $ancienObjectif!=$objectif){
+      PdoGsb::$monPdo->exec($reqEntretien);
+      $reussi=true;
+    }
+    if($objectif!=$ancienObjectif || $points!=$ancienPoint){
+      $req="update objectif set libelle='$objectif', points='$points' where id='$idObjectif'";
+      PdoGsb::$monPdo->exec($req);
+      $reussi=true;
+    }
+    return $reussi;
   }
 }
 ?>

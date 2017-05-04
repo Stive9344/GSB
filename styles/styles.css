@@ -8,6 +8,15 @@ body{
   font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
   font-size:0.8em;
 }
+
+/*textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}*/
+
 #page {
   background-color:white;
   width : 65%;
@@ -295,4 +304,15 @@ table.listeLegere th.libelle{
   height : 28px;
   float : left;
 
+}
+
+.msgTrue, .msgFalse {
+	padding: .2em 1em;
+    font-weight: bold;
+}
+.msgTrue {
+	color:#1f9102;
+}
+.msgFalse {
+    color:#f90000;
 }
