@@ -19,19 +19,26 @@
           }
           //Requête
           $recapEntretien = $pdo->getRecapEntretien($idEntretien);
+          $objectifAtteint=$pdo->getObjectifAtteint($idEntretien);
             echo"<table>";
               echo"<h3>Date : </h3>".$recapEntretien[0]['jour'];
               echo"<h3>Nom : </h3>".$recapEntretien[0]['nomVisiteur'];
               echo"<h3>Prénom : </h3>".$recapEntretien[0]['prenomVisiteur'];
-              echo"<h3>Objectif : </h3>".$recapEntretien[0]['objectif']."</br>";
-              if ($recapEntretien[0]['atteint'] == 0){
-                echo"Atteint : Non";
+              if(!empty($recapEntretien[0]['objectif'])){
+                echo"<h3>Objectif :</h3>".$recapEntretien[0]['objectif'];
+                if ($objectifAtteint[0]['atteint'] == 0){
+                  echo"<br>Atteint : Non";
+                }
+                else {
+                  echo"<br>Atteint : Oui";
+                }
               }
-              else {
-                echo"Atteint : Oui";
+              if($recapEntretien[0]['commentaire']!=""){
+                echo"<h3>Commentaire :</h3>".$recapEntretien[0]['commentaire'];
               }
-              echo"<h3>Commentaire :</h3>".$recapEntretien[0]['commentaire'];
-              echo"<h3>Recommandation :</h3>".$recapEntretien[0]['recommandation'];
+              if($recapEntretien[0]['recommandation']!=""){
+                echo"<h3>Recommandation :</h3>".$recapEntretien[0]['recommandation'];
+              }
               echo"<h3>Etat : </h3>";
               if ($recapEntretien[0]['etatEntretien'] == 0){
                 echo" Non validé";
@@ -41,6 +48,8 @@
               }
               echo"<br>";
               echo"<br>";
+              echo "<form method='POST'  name='redig_mod_entretien' id='redig_mod_entretien' action='index.php?uc=gererEntretien&action=modifEntretien'>";
+              echo "<input type='hidden' name='idEntretien' value='$idEntretien'>";
               echo'<input type="button" onclick="'.$pdo->validerEntretien($idEntretien).';window.location.reload(false);" value="Valider">';
               if($grade[0]['codeGrade']!=1 && $grade[0]['codeGrade']!=null){
                 echo '<input type="submit" value="Modifier" name="Modifier">';

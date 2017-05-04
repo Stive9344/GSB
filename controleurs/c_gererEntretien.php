@@ -5,7 +5,6 @@ $idVisiteur = $_SESSION['idVisiteur'];
 switch($action){
 	case 'EnregistrerEntretien':{
 		include("vues/v_entretien.php");
-
 		break;
 	}
 	case 'ajoutEntretien':{
@@ -15,6 +14,10 @@ switch($action){
 	}
 	case'recapEntretien': {
 		include("vues/v_recapEntretien.php");
+		break;
+	}
+	case 'modifEntretien':{
+		include('vues/v_modifEntretien.php');
 		break;
 	}
 
