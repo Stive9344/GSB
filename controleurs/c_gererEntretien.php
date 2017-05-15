@@ -50,7 +50,7 @@ switch($action){
 		$grade=1;
 	}
   if($idEntretien=$pdo->insertEntretien($_POST['datepicker'], $objectif, $points, $commentaire, $recommandation, $_POST['participant'], $grade)){
-		msgTrue('Entretien n°'.$idEntretien.' ajouté !');
+		msgFalse('Entretien non ajouté, veuillez contactez l équipe technique');
 	}
 	else{
 		msgFalse('Entretien non ajouté, veuillez contactez léquipe technique');
